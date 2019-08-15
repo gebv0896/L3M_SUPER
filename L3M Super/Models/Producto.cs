@@ -12,9 +12,9 @@ namespace L3M_Super.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public int codigoBarraProducto { get; set; }
         public string nombreProducto { get; set; }
         public string descripcionProducto { get; set; }
-        public int codigoBarraProducto { get; set; }
         public string proveedorProducto { get; set;}
         public int precioProducto { get; set; }
         public string impuestoProducto { get; set; }
