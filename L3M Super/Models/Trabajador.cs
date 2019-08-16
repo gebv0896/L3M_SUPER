@@ -18,7 +18,6 @@ namespace L3M_Super.Models
         public string fechaIngreso { get; set; }
         public string sucursal { get; set; }
         public int salarioHora { get; set; }
-
     }
 
     class TrabajadoresDbContext : DbContext
