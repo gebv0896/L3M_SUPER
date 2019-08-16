@@ -14,11 +14,11 @@ namespace L3M_Super.Models
         public string descripcionCompra { get; set; }
         public string fechaRealCompra { get; set; }
         public string fechaRegistroCompra { get; set; }
-        public string proveedor { get; set; }
+        public string proveedorCompra { get; set; }
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public string fotoCompra { get; set; }
-        public string sucursalRegistra { get; set; }
+        public string sucursalRegistraCompra { get; set; }
 
     }
 
