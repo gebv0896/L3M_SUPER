@@ -8,7 +8,9 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
+using System.Web.Script.Serialization;
 using L3M_Super.Models;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
 namespace L3M_Super.Controllers
@@ -40,46 +42,11 @@ namespace L3M_Super.Controllers
         [Route("api/Trabajadores/Planilla")]
         public IHttpActionResult GetPlanilla()
         {
-        string planilla= "{" +
-        "cedulaTrabajador: 30323112" + "," +
-        "nombreCompletoTrabajador: Milton Villegas" + "," +
-    "fechaNacimientoTrabajador: 23/3/1972" + "," +
-        "fechaIngresoTrabajador: 14/10/1996" + "," +
-        "sucursalTrabajador: MIT" + "," +
-        "salarioHoraTrabajador: 500" + "," +
-        "horasLaboradasTrabajador: 40" + "," +
-        "horasExtraTrabajador: 10000" +
-    "}" + "," +
-    "{" +
-        "cedulaTrabajador: 303230875" + "," +
-        "nombreCompletoTrabajador: Marco Hernandez" + "," +
-        "fechaNacimientoTrabajador: 10/8/1985" + "," +
-        "fechaIngresoTrabajador: 2/7/2006" + "," +
-        "sucursalTrabajador: HP" + "," +
-        "salarioHoraTrabajador: 500" + "," +
-        "horasLaboradasTrabajador: 50" + "," +
-        "horasExtraTrabajador: 20" +
-    "}" + "," +
-    "{" +
-        "cedulaTrabajador: 303730849" + "," +
-        "nombreCompletoTrabajador: Marco Rivera" + "," +
-        "fechaNacimientoTrabajador: 05/06/1981" + "," +
-        "fechaIngresoTrabajador: 24/12/2014" + "," +
-        "sucursalTrabajador: Procter & Gamble" + "," +
-        "salarioHoraTrabajador: 500" + "," +
-        "horasLaboradasTrabajador: 20" + "," +
-       " horasExtraTrabajador: 0" +
-    "}";
-
-            // JObject json = JObject.Parse(planilla);
-            /*
-             Trabajador trabajador = db.Trabajadores.Find(id);
-             if (trabajador == null)
-             {
-                 return NotFound();
-             }
-             */
-            return Ok(planilla);
+            string planilla = "{'cedulaTrabajador': '30323112', 'nombreCompletoTrabajador': 'Milton Villegas','fechaNacimientoTrabajador': '23/3/1972','fechaIngresoTrabajador': '14/10/1996','sucursalTrabajador': 'MIT','salarioHoraTrabajador': '500','horasLaboradasTrabajador': '40','horasExtraTrabajador':'10000','cedulaTrabajador': '303230875', 'nombreCompletoTrabajador': 'Marco Hernandez','chaNacimientoTrabajador': '10/8/1985','fechaIngresoTrabajador': '2/7/2006', 'sucursalTrabajador': 'HP', 'salarioHoraTrabajador': '500','horasLaboradasTrabajador': '50', 'horasExtraTrabajador': '20', 'cedulaTrabajador': '303730849', 'nombreCompletoTrabajador': 'Marco Rivera', 'fechaNacimientoTrabajador': '05/06/1981','fechaIngresoTrabajador': '24/12/2014', 'sucursalTrabajador': 'Procter & Gamble', 'salarioHoraTrabajador': '500','horasLaboradasTrabajador': '20','horasExtraTrabajador': '0'}";
+            
+            JObject json = JObject.Parse(planilla);
+       
+            return Ok(json);
         }
 
 
