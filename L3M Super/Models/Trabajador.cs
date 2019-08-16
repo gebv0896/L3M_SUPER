@@ -12,12 +12,15 @@ namespace L3M_Super.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int cedula { get; set; }
-        public string nombreCompleto { get; set; }
-        public string fechaNacimiento { get; set; }
-        public string fechaIngreso { get; set; }
-        public string sucursal { get; set; }
-        public int salarioHora { get; set; }
+        public int cedulaTrabajador { get; set; }
+        public string nombreCompletoTrabajador { get; set; }
+        public string fechaNacimientoTrabajador { get; set; }
+        public string fechaIngresoTrabajador { get; set; }
+        public string sucursalTrabajador { get; set; }
+        public int salarioHoraTrabajador { get; set; }
+        public int horasLaboradasTrabajador { get; set; }
+        public int horasExtraTrabajador { get; set; }
+
     }
 
     class TrabajadoresDbContext : DbContext
@@ -26,5 +29,4 @@ namespace L3M_Super.Models
     }
 
 
-}
 }
