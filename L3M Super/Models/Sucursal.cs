@@ -12,13 +12,13 @@ namespace L3M_Super.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public string nombreSucursal { get; set; }
-        public string direccionSurcusal { get; set; }
+        public string direccionSucursal { get; set; }
         public int telefonoSucursal { get; set; }
         public string administradorSucursal { get; set; }
 
     }
-    class SucursalesDbContext : DbContext
+    class Sucursales2DbContext : DbContext
     {
-        public DbSet<Sucursal> Sucursales { get; set; }
+        public DbSet<Sucursal> Sucursales2 { get; set; }
     }
 }
