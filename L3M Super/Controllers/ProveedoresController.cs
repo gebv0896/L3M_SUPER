@@ -22,7 +22,7 @@ namespace L3M_Super.Controllers
             return db.Proveedores;
         }
 
-        // GET: api/Proveedores/5
+        // GET: api/Proveedores/id
         [ResponseType(typeof(Proveedor))]
         public IHttpActionResult GetProveedor(string id)
         {
@@ -35,7 +35,7 @@ namespace L3M_Super.Controllers
             return Ok(proveedor);
         }
 
-        // PUT: api/Proveedores/5
+        // PUT: api/Proveedores
         [ResponseType(typeof(void))]
         public IHttpActionResult PutProveedor(Proveedor proveedor)
         {
@@ -102,7 +102,7 @@ namespace L3M_Super.Controllers
             return CreatedAtRoute("DefaultApi", new { id = proveedor.cedulaProveedor }, proveedor);
         }
 
-        // DELETE: api/Proveedores/5
+        // DELETE: api/Proveedores/id
         [ResponseType(typeof(Proveedor))]
         public IHttpActionResult DeleteProveedor(string id)
         {

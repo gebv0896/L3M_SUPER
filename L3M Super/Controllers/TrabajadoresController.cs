@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -25,7 +26,7 @@ namespace L3M_Super.Controllers
             return db.Trabajadores;
         }
 
-        // GET: api/Trabajadores/5
+        // GET: api/Trabajadores/id
         [ResponseType(typeof(Trabajador))]
         public IHttpActionResult GetTrabajador(int id)
         {
@@ -38,19 +39,24 @@ namespace L3M_Super.Controllers
             return Ok(trabajador);
         }
 
+        //GET: api/Trabajadores/Planilla
         [ResponseType(typeof(Trabajador))]
         [Route("api/Trabajadores/Planilla")]
         public IHttpActionResult GetPlanilla()
         {
-            string planilla = "{'cedulaTrabajador': '30323112', 'nombreCompletoTrabajador': 'Milton Villegas','fechaNacimientoTrabajador': '23/3/1972','fechaIngresoTrabajador': '14/10/1996','sucursalTrabajador': 'MIT','salarioHoraTrabajador': '500','horasLaboradasTrabajador': '40','horasExtraTrabajador':'10000','cedulaTrabajador': '303230875', 'nombreCompletoTrabajador': 'Marco Hernandez','chaNacimientoTrabajador': '10/8/1985','fechaIngresoTrabajador': '2/7/2006', 'sucursalTrabajador': 'HP', 'salarioHoraTrabajador': '500','horasLaboradasTrabajador': '50', 'horasExtraTrabajador': '20', 'cedulaTrabajador': '303730849', 'nombreCompletoTrabajador': 'Marco Rivera', 'fechaNacimientoTrabajador': '05/06/1981','fechaIngresoTrabajador': '24/12/2014', 'sucursalTrabajador': 'Procter & Gamble', 'salarioHoraTrabajador': '500','horasLaboradasTrabajador': '20','horasExtraTrabajador': '0'}";
-            
-            JObject json = JObject.Parse(planilla);
-       
-            return Ok(json);
+            ArrayList array = new ArrayList();
+
+            foreach (Trabajador element in db.Trabajadores)
+            {
+                if (element.horasLaboradasTrabajador!=0) {
+                    array.Add(element);
+                }
+            }
+            return Ok(array);
         }
 
 
-        // PUT: api/Trabajadores/5
+        // PUT: api/Trabajadores
         [ResponseType(typeof(void))]
         public IHttpActionResult PutTrabajador(Trabajador trabajador)
         {
@@ -116,7 +122,7 @@ namespace L3M_Super.Controllers
             return CreatedAtRoute("DefaultApi", new { id = trabajador.cedulaTrabajador }, trabajador);
         }
 
-        // DELETE: api/Trabajadores/5
+        // DELETE: api/Trabajadores/id
         [ResponseType(typeof(Trabajador))]
         public IHttpActionResult DeleteTrabajador(int id)
         {

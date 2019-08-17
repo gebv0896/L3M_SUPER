@@ -22,7 +22,7 @@ namespace L3M_Super.Controllers
             return db.Compras;
         }
 
-        // GET: api/Compras/5
+        // GET: api/Compras/id
         [ResponseType(typeof(Compra))]
         public IHttpActionResult GetCompra(string id)
         {
@@ -35,7 +35,7 @@ namespace L3M_Super.Controllers
             return Ok(compra);
         }
 
-        // PUT: api/Compras/5
+        // PUT: api/Compras
         [ResponseType(typeof(void))]
         public IHttpActionResult PutCompra(Compra compra)
         {
@@ -102,7 +102,7 @@ namespace L3M_Super.Controllers
             return CreatedAtRoute("DefaultApi", new { id = compra.fotoCompra }, compra);
         }
 
-        // DELETE: api/Compras/5
+        // DELETE: api/Compras/id
         [ResponseType(typeof(Compra))]
         public IHttpActionResult DeleteCompra(string id)
         {

@@ -22,7 +22,7 @@ namespace L3M_Super.Controllers
             return db.Productos;
         }
 
-        // GET: api/Productos/5
+        // GET: api/Productos/id
         [ResponseType(typeof(Producto))]
         public IHttpActionResult GetProducto(int id)
         {
@@ -35,7 +35,7 @@ namespace L3M_Super.Controllers
             return Ok(producto);
         }
 
-        // PUT: api/Productos/5
+        // PUT: api/Productos
         [ResponseType(typeof(void))]
         public IHttpActionResult PutProducto(Producto producto)
         {
@@ -101,7 +101,7 @@ namespace L3M_Super.Controllers
             return CreatedAtRoute("DefaultApi", new { id = producto.codigoBarraProducto }, producto);
         }
 
-        // DELETE: api/Productos/5
+        // DELETE: api/Productos/id
         [ResponseType(typeof(Producto))]
         public IHttpActionResult DeleteProducto(int id)
         {

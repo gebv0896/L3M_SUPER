@@ -22,7 +22,7 @@ namespace L3M_Super.Controllers
             return db.Roles;
         }
 
-        // GET: api/Roles/5
+        // GET: api/Roles/id
         [ResponseType(typeof(Rol))]
         public IHttpActionResult GetRol(string id)
         {
@@ -35,7 +35,7 @@ namespace L3M_Super.Controllers
             return Ok(rol);
         }
 
-        // PUT: api/Roles/5
+        // PUT: api/Roles
         [ResponseType(typeof(void))]
         public IHttpActionResult PutRol(Rol rol)
         {
@@ -101,7 +101,7 @@ namespace L3M_Super.Controllers
             return CreatedAtRoute("DefaultApi", new { id = rol.nombreRol }, rol);
         }
 
-        // DELETE: api/Roles/5
+        // DELETE: api/Roles/id
         [ResponseType(typeof(Rol))]
         public IHttpActionResult DeleteRol(string id)
         {
