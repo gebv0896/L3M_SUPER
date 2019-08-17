@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -14,19 +15,19 @@ namespace L3M_Super.Controllers
 {
     public class ProductosController : ApiController
     {
-        private ProductosDbContext db = new ProductosDbContext();
+        private Productos2DbContext db = new Productos2DbContext();
 
         // GET: api/Productos
-        public IQueryable<Producto> GetProductos()
+        public IQueryable<Producto> GetProductos2()
         {
-            return db.Productos;
+            return db.Productos2;
         }
 
-        // GET: api/Productos/id
+        // GET: api/Productos/5
         [ResponseType(typeof(Producto))]
         public IHttpActionResult GetProducto(int id)
         {
-            Producto producto = db.Productos.Find(id);
+            Producto producto = db.Productos2.Find(id);
             if (producto == null)
             {
                 return NotFound();
@@ -35,7 +36,32 @@ namespace L3M_Super.Controllers
             return Ok(producto);
         }
 
-        // PUT: api/Productos
+        //GET: api/Productos/Sucursal
+        [ResponseType(typeof(Trabajador))]
+        [Route("api/Productos/Sucursal/{sucursal}")]
+        public IHttpActionResult GetProductosSucursal(string sucursal)
+        {
+            ArrayList array = new ArrayList();
+
+            foreach (Producto element in db.Productos2)
+            {
+                if (element.sucursalProducto.Equals(sucursal))
+                {
+                    array.Add(element);
+                }
+            }
+            if(array.Count == 0)
+            {
+                return NotFound();
+            }
+            else
+            {
+                return Ok(array);
+            }
+            
+        }
+
+        // PUT: api/Productos/5
         [ResponseType(typeof(void))]
         public IHttpActionResult PutProducto(Producto producto)
         {
@@ -80,7 +106,7 @@ namespace L3M_Super.Controllers
                 return BadRequest(ModelState);
             }
 
-            db.Productos.Add(producto);
+            db.Productos2.Add(producto);
 
             try
             {
@@ -101,17 +127,17 @@ namespace L3M_Super.Controllers
             return CreatedAtRoute("DefaultApi", new { id = producto.codigoBarraProducto }, producto);
         }
 
-        // DELETE: api/Productos/id
+        // DELETE: api/Productos/5
         [ResponseType(typeof(Producto))]
         public IHttpActionResult DeleteProducto(int id)
         {
-            Producto producto = db.Productos.Find(id);
+            Producto producto = db.Productos2.Find(id);
             if (producto == null)
             {
                 return NotFound();
             }
 
-            db.Productos.Remove(producto);
+            db.Productos2.Remove(producto);
             db.SaveChanges();
 
             return Ok(producto);
@@ -128,7 +154,7 @@ namespace L3M_Super.Controllers
 
         private bool ProductoExists(int id)
         {
-            return db.Productos.Count(e => e.codigoBarraProducto == id) > 0;
+            return db.Productos2.Count(e => e.codigoBarraProducto == id) > 0;
         }
     }
 }

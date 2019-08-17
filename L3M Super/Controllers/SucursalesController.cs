@@ -16,8 +16,7 @@ namespace L3M_Super.Controllers
     public class SucursalesController : ApiController
     {
         private Sucursales2DbContext db = new Sucursales2DbContext();
-        private ProductosDbContext db_producto = new ProductosDbContext();
-
+        
         // GET: api/Sucursales
         public IQueryable<Sucursal> GetSucursales2()
         {
@@ -37,15 +36,7 @@ namespace L3M_Super.Controllers
             return Ok(sucursal);
         }
 
-        //GET: api/Sucursales/Productos
-        [ResponseType(typeof(Trabajador))]
-        [Route("api/Sucursales/Productos")]
-        [HttpGet]
-        public IQueryable<Producto> GetProductosPorSucursal()
-        {
-            return db_producto.Productos;
-        }
-
+        
         // PUT: api/Sucursales
         [ResponseType(typeof(void))]
         public IHttpActionResult PutSucursal(Sucursal sucursal)

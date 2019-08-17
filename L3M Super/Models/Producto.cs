@@ -19,9 +19,10 @@ namespace L3M_Super.Models
         public int precioProducto { get; set; }
         public string impuestoProducto { get; set; }
         public string descuentoProducto { get; set; }
+        public string sucursalProducto { get; set; }
     }
-    class ProductosDbContext : DbContext
+    class Productos2DbContext : DbContext
     {
-        public DbSet<Producto> Productos { get; set; }
+        public DbSet<Producto> Productos2 { get; set; }
     }
 }
