@@ -10,6 +10,10 @@ namespace L3M_Super.Models
 {
     public class Producto
     {
+        /// <summary>
+        /// Atributos de la entidad producto
+        /// Su atributo clave es "codigoBarraProducto"
+        /// </summary>
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int codigoBarraProducto { get; set; }
@@ -23,6 +27,9 @@ namespace L3M_Super.Models
     }
     class Productos2DbContext : DbContext
     {
+        /// <summary>
+        /// Conxtexto para la base de datos
+        /// </summary>
         public DbSet<Producto> Productos2 { get; set; }
     }
 }

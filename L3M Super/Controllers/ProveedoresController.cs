@@ -14,14 +14,25 @@ namespace L3M_Super.Controllers
 {
     public class ProveedoresController : ApiController
     {
+        /// <summary>
+        /// Base de datos segun el contexto Proveedores
+        /// </summary>
         private ProveedoresDbContext db = new ProveedoresDbContext();
 
+        /// <summary>
+        /// Obtiene todas los proveedores guardados en la base
+        /// </summary>
+        /// <returns>Proveedores almacenados</returns>
         // GET: api/Proveedores
         public IQueryable<Proveedor> GetProveedores()
         {
             return db.Proveedores;
         }
-
+        /// <summary>
+        /// Obtiene un proveedor segun su ID
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>El proveedor con el id colocado</returns>
         // GET: api/Proveedores/id
         [ResponseType(typeof(Proveedor))]
         public IHttpActionResult GetProveedor(string id)
@@ -35,6 +46,11 @@ namespace L3M_Super.Controllers
             return Ok(proveedor);
         }
 
+        /// <summary>
+        /// Metodo para modificar la entidad proveedor
+        /// </summary>
+        /// <param name="sucursal"></param>
+        /// <returns>El proveedor con los datos modificados</returns>
         // PUT: api/Proveedores
         [ResponseType(typeof(void))]
         public IHttpActionResult PutProveedor(Proveedor proveedor)
@@ -72,6 +88,11 @@ namespace L3M_Super.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
+        /// <summary>
+        /// Metodo para agregar una nuevo rol a la base de datos
+        /// </summary>
+        /// <param name="sucursal"></param>
+        /// <returns>El nuevo Rol</returns>
         // POST: api/Proveedores
         [ResponseType(typeof(Proveedor))]
         public IHttpActionResult PostProveedor(Proveedor proveedor)
@@ -102,6 +123,11 @@ namespace L3M_Super.Controllers
             return CreatedAtRoute("DefaultApi", new { id = proveedor.cedulaProveedor }, proveedor);
         }
 
+        /// <summary>
+        /// Elimina un proveedor de la base de datos segun su ID
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>Retorna el proveedor eliminada</returns>
         // DELETE: api/Proveedores/id
         [ResponseType(typeof(Proveedor))]
         public IHttpActionResult DeleteProveedor(string id)

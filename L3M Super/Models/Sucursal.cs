@@ -9,6 +9,10 @@ namespace L3M_Super.Models
 {
     public class Sucursal
     {
+        /// <summary>
+        /// Atributos de la entidad Sucursal
+        /// Su atributo clave es "nombreSucursal"
+        /// </summary>
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public string nombreSucursal { get; set; }
@@ -19,6 +23,9 @@ namespace L3M_Super.Models
     }
     class Sucursales2DbContext : DbContext
     {
+        /// <summary>
+        /// Conxtexto para la base de datos
+        /// </summary>
         public DbSet<Sucursal> Sucursales2 { get; set; }
     }
 }

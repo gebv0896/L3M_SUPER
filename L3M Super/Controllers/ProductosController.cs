@@ -15,14 +15,25 @@ namespace L3M_Super.Controllers
 {
     public class ProductosController : ApiController
     {
+        /// <summary>
+        /// Base de datos segun el contexto Productos
+        /// </summary>
         private Productos2DbContext db = new Productos2DbContext();
 
+        /// <summary>
+        /// Obtiene todas los productos guardados en la base
+        /// </summary>
+        /// <returns>Productos almacenados</returns>
         // GET: api/Productos
         public IQueryable<Producto> GetProductos2()
         {
             return db.Productos2;
         }
-
+        /// <summary>
+        /// Obtiene un producto segun su ID
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>El producto con el id colocado</returns>
         // GET: api/Productos/5
         [ResponseType(typeof(Producto))]
         public IHttpActionResult GetProducto(int id)
@@ -36,6 +47,11 @@ namespace L3M_Super.Controllers
             return Ok(producto);
         }
 
+        /// <summary>
+        /// Metodo para modificar la entidad producto
+        /// </summary>
+        /// <param name="sucursal"></param>
+        /// <returns>El producto con los datos modificados</returns>
         //GET: api/Productos/Sucursal
         [ResponseType(typeof(Trabajador))]
         [Route("api/Productos/Sucursal/{sucursal}")]
@@ -61,6 +77,12 @@ namespace L3M_Super.Controllers
             
         }
 
+
+        /// <summary>
+        /// Metodo para modificar la entidad producto
+        /// </summary>
+        /// <param name="sucursal"></param>
+        /// <returns>El producto con los datos modificados</returns>
         // PUT: api/Productos/5
         [ResponseType(typeof(void))]
         public IHttpActionResult PutProducto(Producto producto)
@@ -97,6 +119,11 @@ namespace L3M_Super.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
+        /// <summary>
+        /// Metodo para agregar una nuevo producto a la base de datos
+        /// </summary>
+        /// <param name="sucursal"></param>
+        /// <returns>El nuevo producto</returns>
         // POST: api/Productos
         [ResponseType(typeof(Producto))]
         public IHttpActionResult PostProducto(Producto producto)
@@ -127,6 +154,11 @@ namespace L3M_Super.Controllers
             return CreatedAtRoute("DefaultApi", new { id = producto.codigoBarraProducto }, producto);
         }
 
+        /// <summary>
+        /// Elimina un producto de la base de datos segun su ID
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>Retorna el producto eliminada</returns>
         // DELETE: api/Productos/5
         [ResponseType(typeof(Producto))]
         public IHttpActionResult DeleteProducto(int id)

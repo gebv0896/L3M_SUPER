@@ -10,7 +10,10 @@ namespace L3M_Super.Models
 {
     public class Compra
     {
-        
+        /// <summary>
+        /// Atributos de la entidad Compra
+        /// Su atributo clave es "fotoCompra"
+        /// </summary>
         public string descripcionCompra { get; set; }
         public string fechaRealCompra { get; set; }
         public string fechaRegistroCompra { get; set; }
@@ -24,6 +27,9 @@ namespace L3M_Super.Models
 
     class ComprasDbContext : DbContext
     {
+        /// <summary>
+        /// Conxtexto para la base de datos
+        /// </summary>
         public DbSet<Compra> Compras { get; set; }
     }
 

@@ -10,6 +10,10 @@ namespace L3M_Super.Models
 {
     public class Trabajador
     {
+        /// <summary>
+        /// Atributos de la entidad Trabajador
+        /// Su atributo clave es "cedulaTrabajador"
+        /// </summary>
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int cedulaTrabajador { get; set; }
@@ -23,8 +27,12 @@ namespace L3M_Super.Models
 
     }
 
+    
     class TrabajadoresDbContext : DbContext
     {
+        /// <summary>
+        /// Conxtexto para la base de datos
+        /// </summary>
         public DbSet<Trabajador> Trabajadores { get; set; }
     }
 

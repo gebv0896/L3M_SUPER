@@ -14,6 +14,9 @@ namespace L3M_Super.Controllers
 {
     public class ComprasController : ApiController
     {
+        /// <summary>
+        /// Base de datos segun el contexto Compras
+        /// </summary>
         private ComprasDbContext db = new ComprasDbContext();
 
         // GET: api/Compras
